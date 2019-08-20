@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+
+int BinarySearch(int a[],int s,int uservalue)
+{
+    int low = 0;
+    int high = s-1;
+    int mid;
+    while(low<=high)
+    {
+         mid = (low+high)/2;
+         if(uservalue == a[mid])
+         {
+             return mid;
+         }
+         else if(uservalue>a[mid])
+         {
+             low = mid+1;
+         }
+         else
+         {
+             high = mid-1;
+         }
+    }
+
+    return -1;
+}
+
+
+int main()
+{
+    int a[]= {11,22,34,47,55,67,82,98};
+    int uservalue;
+    cout<<"Enter positive integer:"<<endl;
+    cin>>uservalue;
+    int result = BinarySearch(a,8,uservalue);
+    if(result>=0)
+    {
+        cout<<"The Integer "<<a[result]<<" found at index no "<<result<<endl;
+    }
+    else
+    {
+        cout<<"The entered value "<<uservalue<<" not found"<<endl;
+    }
+
+
+}
